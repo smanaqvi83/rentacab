@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/facelets"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+<h:form>
+	
+	<p:tabView>
+		<p:tab id="tabAddress" title="Address">
+			<table>
+				<tr>
+					<td>
+						<h:outputText value="Location Name : " />
+					</td>
+					<td>
+						<p:autoComplete id="postCode" converter="usPostCodesConverter" var="postcode"  itemLabel="#{postcode.postcode}" itemValue="#{postcode}" maxResults="5" value="#{cab.selectedPostCode}" completeMethod="#{cab.complete}"/>
+					</td>
+					
+				</tr>
+				<tr>
+					<td>
+						<h:outputText value="Address : " />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputText value="Block : " />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputText value="City : " />
+					</td>
+				</tr>
+			</table>
+		</p:tab>
+		
+		<p:tab id="tabLocations" title="Locations">
+			<table>
+				<tr>
+					<td>
+						<p>test</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputText value="Address : " />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputText value="Block : " />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<h:outputText value="City : " />
+					</td>
+				</tr>
+			</table>
+		</p:tab>
+	</p:tabView>
+
+	<h:commandButton value="CAB" action="#{cab.myAction}"/>
+	<p:commandButton value="#{cab.cabName}" ajax="true" action="#{cab.doAction}"></p:commandButton>
+	</h:form>
+</h:body>
+</html>
